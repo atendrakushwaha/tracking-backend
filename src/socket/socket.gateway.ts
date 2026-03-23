@@ -14,7 +14,7 @@ import { ConfigService } from '@nestjs/config';
 
 @WebSocketGateway({
   cors: {
-    origin: ['http://localhost:5173', 'http://localhost:5174'],
+    origin: ['http://localhost:5173', 'http://localhost:5174', 'https://tracking-frontend-z3ge.vercel.app'],
     credentials: true,
   },
 })

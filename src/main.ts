@@ -10,9 +10,12 @@ async function bootstrap() {
   // Global prefix
   app.setGlobalPrefix('api/v1');
 
+  // Trust proxy for Render/Vercel (required for secure cookies behind reverse proxy)
+  app.getHttpAdapter().getInstance().set('trust proxy', 1);
+
   // CORS — allow frontend to send cookies
   app.enableCors({
-    origin: ['http://localhost:5173', 'http://localhost:5174',"https://tracking-frontend-self.vercel.app","https://tracking-frontend-self.vercel.app/login"],
+    origin: true, // Automatically allow the requesting origin
     credentials: true,
   });
 

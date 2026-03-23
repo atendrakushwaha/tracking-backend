@@ -30,8 +30,8 @@ export class AuthController {
     // Set HTTP-only cookie for REST API auth
     response.cookie('Authentication', result.accessToken, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'strict',
+      secure: true,
+      sameSite: 'none',
       maxAge: 1000 * 60 * 60 * 24, // 1 day
     });
 
@@ -62,8 +62,8 @@ export class AuthController {
   async logout(@Res({ passthrough: true }) response: Response) {
     response.cookie('Authentication', '', {
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'strict',
+      secure: true,
+      sameSite: 'none',
       expires: new Date(0),
     });
     return { message: 'Logged out successfully' };
