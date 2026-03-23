@@ -12,7 +12,7 @@ async function bootstrap() {
 
   // CORS — allow frontend to send cookies
   app.enableCors({
-    origin: ['http://localhost:5173', 'http://localhost:5174'],
+    origin: ['http://localhost:5173', 'http://localhost:5174',"https://tracking-frontend-self.vercel.app/"],
     credentials: true,
   });
 
